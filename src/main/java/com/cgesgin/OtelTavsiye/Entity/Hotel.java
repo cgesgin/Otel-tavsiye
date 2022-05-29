@@ -1,6 +1,10 @@
 package com.cgesgin.OtelTavsiye.Entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name="Hotel")
@@ -31,10 +35,15 @@ public class Hotel {
     @Column(name = "email")
     private String email;
 
+    @OneToMany(mappedBy = "hotel", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnore
+    private Set<Comment> comments;
+
     public Hotel() {
+        this.comments= new HashSet<>();
     }
 
-    public Hotel(int id, String name, int starRating, boolean iscarPark, boolean isVentilation, boolean isWifi, boolean isAward, String email) {
+    public Hotel(int id, String name, int starRating, boolean iscarPark, boolean isVentilation, boolean isWifi, boolean isAward, String email, Set<Comment> comments) {
         this.id = id;
         this.name = name;
         this.starRating = starRating;
@@ -43,6 +52,7 @@ public class Hotel {
         this.isWifi = isWifi;
         this.isAward = isAward;
         this.email = email;
+        this.comments = comments;
     }
 
     public int getId() {
@@ -107,5 +117,13 @@ public class Hotel {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public Set<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(Set<Comment> comments) {
+        this.comments = comments;
     }
 }

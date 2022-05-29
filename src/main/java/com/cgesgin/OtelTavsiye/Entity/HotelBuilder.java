@@ -1,5 +1,7 @@
 package com.cgesgin.OtelTavsiye.Entity;
 
+import java.util.Set;
+
 public class HotelBuilder {
 
     private int id;
@@ -9,6 +11,7 @@ public class HotelBuilder {
     private boolean isVentilation;
     private boolean isWifi;
     private boolean isAward;
+    private Set<Comment> comments;
 
     private String email;
 
@@ -31,6 +34,7 @@ public class HotelBuilder {
         hotel.setIscarPark(this.iscarPark);
         hotel.setWifi(this.isWifi);
         hotel.setEmail(this.email);
+        hotel.setComments(this.comments);
 
         return hotel;
     }
@@ -72,6 +76,11 @@ public class HotelBuilder {
 
     public HotelBuilder setEmail(String email) {
         this.email = email;
+        return this;
+    }
+
+    public HotelBuilder setComments(Set<Comment> comments) {
+        this.comments = comments;
         return this;
     }
 }
