@@ -1,6 +1,6 @@
 # Otel-tavsiye
 * Nesne tabanlı Yazılım mühendisliği projesidir.
-* Dersin amacı tasarım kalıpları kullanılarak uygulama tasarımı yapılmasıdır.
+* Projenin amacı tasarım kalıpları bir uygulama içinde kullanmaktır.
 ### Kulllanılan tasarım kalıpları
 * Builder 
 * Proxy
